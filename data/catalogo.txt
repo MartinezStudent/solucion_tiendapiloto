@@ -1,0 +1,30 @@
+P00001;Leche entera 1L;Lácteos;40;4.5
+P00002;Arroz extra 5kg;Abarrotes;25;22.9
+P00003;Aceite vegetal 1L;Abarrotes;30;9.8
+P00004;Yogurt fresa 1L;Lácteos;15;7.2
+P00005;Pollo entero kg;Carnes;12;11.5
+P00006;Detergente 800g;Limpieza;20;14.9
+P00007;Azúcar rubia 1kg;Abarrotes;45;4.2
+P00008;Fideos spaghetti 500g;Abarrotes;60;3.8
+P00009;Atún en aceite 170g;Conservas;48;5.9
+P00010;Queso fresco 500g;Lácteos;15;13.5
+P00011;Mantequilla 200g;Lácteos;22;8.9
+P00012;Huevos pardos x30;Huevos;16;17.5
+P00013;Pan de molde integral;Panadería;28;7.8
+P00014;Galletas de soda x6;Snacks;55;3.2
+P00015;Gaseosa cola 3L;Bebidas;34;10.9
+P00016;Agua mineral 625ml;Bebidas;80;1.8
+P00017;Jugo de naranja 1L;Bebidas;26;6.5
+P00018;Cerveza lager 330ml;Licores;50;3.9
+P00019;Carne molida kg;Carnes;10;24.9
+P00020;Filete de pescado kg;Pescados;8;29.9
+P00021;Manzana delicia kg;Frutas;35;6.8
+P00022;Plátano de seda kg;Frutas;40;4.5
+P00023;Papa blanca kg;Verduras;70;3.5
+P00024;Cebolla roja kg;Verduras;55;3.9
+P00025;Jabón de tocador x3;Cuidado personal;42;8.4
+P00026;Shampoo 400ml;Cuidado personal;19;16.9
+P00027;Papel higiénico x12;Limpieza;38;19.9
+P00028;Lejía 1L;Limpieza;31;5.5
+P00029;Alimento para perro 3kg;Mascotas;14;32.0
+P00030;Chocolate de taza x6;Snacks;24;9.7
