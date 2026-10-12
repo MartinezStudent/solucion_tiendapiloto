@@ -18,11 +18,12 @@ Al iniciar, el programa carga los productos existentes y muestra en el menú cu�
 
 ## El código de producto
 
-Cada producto tiene un **código único** que lo identifica dentro del catálogo. Tiene el formato **`P` seguido de 5 dígitos** (por ejemplo, `P00001`, `P00002`, ..., `P00030`). Es el dato clave del programa, porque con él se realizan las principales operaciones:
+Cada producto tiene un **código único** que lo identifica dentro del catálogo. 
+Tiene el formato **`P` seguido de 5 dígitos** (por ejemplo, `P00001`, `P00002`, ..., `P00030`). Con él se realizan las siguientes operaciones:
 
-- **Buscar:** se consulta un producto escribiendo su código.
-- **Agregar:** el código del nuevo producto no puede coincidir con el de otro ya registrado.
-- **Modificar y eliminar:** se indica el código del producto que se desea cambiar o quitar.
+- **Opción 2: Buscar producto:** se consulta un producto escribiendo su código.
+- **Opción 4: Modificar producto:** el código del nuevo producto no puede coincidir con el de otro ya registrado.
+- **Opción 5: Eliminar producto:** se indica el código del producto que se desea cambiar o quitar.
 
 Algunas consideraciones:
 
@@ -30,7 +31,7 @@ Algunas consideraciones:
 - Si el código no existe en el catálogo, el programa avisa que el producto no fue encontrado.
 - El código no se puede cambiar desde la opción de modificar. Si necesitas otro código, elimina el producto y vuelve a agregarlo.
 - Dentro del catálogo del producto hay registrados 30 de estos, yendo desde el P00001 hasta el P00030
-__el caso de la problemática indica que hay alrededor de 1200 registros, sin embargo se colocó 30 productos para realizar las prueabs dentro del código desarrollado__
+*El caso de la problemática indica que hay alrededor de 1200 registros, sin embargo se colocó 30 productos para realizar las prueabs dentro del código desarrollado*
 
 ## Cómo usarlo
 
