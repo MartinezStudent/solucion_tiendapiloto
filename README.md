@@ -30,8 +30,7 @@ Algunas consideraciones:
 - Los códigos se guardan en mayúsculas. Al buscar, agregar o modificar puedes escribirlos en minúsculas (`p00001` equivale a `P00001`), pero al eliminar debes escribirlos en mayúsculas.
 - Si el código no existe en el catálogo, el programa avisa que el producto no fue encontrado.
 - El código no se puede cambiar desde la opción de modificar. Si necesitas otro código, elimina el producto y vuelve a agregarlo.
-- Dentro del catálogo del producto hay registrados 30 de estos, yendo desde el P00001 hasta el P00030
-*El caso de la problemática indica que hay alrededor de 1200 registros, sin embargo se colocó 30 productos para realizar las prueabs dentro del código desarrollado*
+- Dentro del catálogo del producto hay registrados 30 de estos, yendo desde el P00001 hasta el P00030 (*El caso de la problemática indica que hay alrededor de 1200 registros, sin embargo se colocó 30 productos para realizar las prueabs dentro del código desarrollado*)
 
 ## Cómo usarlo
 
