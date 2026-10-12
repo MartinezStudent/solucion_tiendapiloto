@@ -19,7 +19,7 @@ Al iniciar, el programa carga los productos existentes y muestra en el menú cu�
 ## Cómo usarlo
 
 1. Descarga o clona este repositorio.
-2. Abre una terminal en la carpeta del proyecto.
+2. Abrir una terminal en la carpeta del proyecto.
 3. Ejecuta el programa:
 
 ```
@@ -30,8 +30,4 @@ python main.py
 
 ## Datos del catálogo
 
-Los productos se guardan en el archivo `catalogo.txt`, dentro de la carpeta `data`. Si el archivo no existe, el programa lo crea al iniciar.
-
-## Requisitos
-
-- Python 3
+Los productos se guardan en el archivo `catalogo.txt` creado
