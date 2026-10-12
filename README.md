@@ -16,10 +16,24 @@ Programa de consola para administrar el catálogo de productos de una tienda. Pe
 
 Al iniciar, el programa carga los productos existentes y muestra en el menú cuántos hay en el catálogo.
 
+## El código de producto
+
+Cada producto tiene un **código único** que lo identifica dentro del catálogo. Tiene el formato **`P` seguido de 5 dígitos** (por ejemplo, `P00001`, `P00002`, ..., `P00030`). Es el dato clave del programa, porque con él se realizan las principales operaciones:
+
+- **Buscar:** se consulta un producto escribiendo su código.
+- **Agregar:** el código del nuevo producto no puede coincidir con el de otro ya registrado.
+- **Modificar y eliminar:** se indica el código del producto que se desea cambiar o quitar.
+
+Algunas consideraciones:
+
+- Los códigos se guardan en mayúsculas. Al buscar, agregar o modificar puedes escribirlos en minúsculas (`p00001` equivale a `P00001`), pero al eliminar debes escribirlos en mayúsculas.
+- Si el código no existe en el catálogo, el programa avisa que el producto no fue encontrado.
+- El código no se puede cambiar desde la opción de modificar. Si necesitas otro código, elimina el producto y vuelve a agregarlo.
+
 ## Cómo usarlo
 
 1. Descarga o clona este repositorio.
-2. Abrir una terminal en la carpeta del proyecto.
+2. Abre una terminal en la carpeta del proyecto.
 3. Ejecuta el programa:
 
 ```
@@ -30,4 +44,8 @@ python main.py
 
 ## Datos del catálogo
 
-Los productos se guardan en el archivo `catalogo.txt` creado
+Los productos se guardan en el archivo `catalogo.txt`, dentro de la carpeta `data`. Si el archivo no existe, el programa lo crea al iniciar.
+
+## Requisitos
+
+- Python 3
