@@ -8,6 +8,14 @@ ARCHIVO = "data/catalogo.txt"
 SEPARADOR = ";"
 
 # ---------- Fucniones de Validación ----------
+def es_entero(texto):
+    #Si es verdadero, el texto es un número entero mayor o igual a 0.
+    return texto.isdigit()
+ 
+def es_decimal(texto):
+    #Si es verdadero, el texto es un número con, como máximo, un punto decimal.
+    return texto.replace(".", "", 1).isdigit()
+
 def leer_texto(mensaje):
     #Valida que el texto ingresado no esté vacío y repite hasta que sea válido.
     while True:
@@ -15,7 +23,24 @@ def leer_texto(mensaje):
         if texto != "":
             return texto
         print("Error: el campo no puede estar vacío.")
-        
+
+def leer_cantidad(mensaje):
+    #Valida que el texto ingresado sea un entero mayor o igual a 0 y repite hasta que sea válido.
+    while True:
+        texto = input(mensaje).strip()
+        if es_entero(texto):
+            return int(texto)
+        print("Error: ingrese un número entero mayor o igual a 0.")
+ 
+ 
+def leer_precio(mensaje):
+    #Valida que el texto ingresado sea un decimal mayor que 0 y repite hasta que sea válido.
+    while True:
+        texto = input(mensaje).strip()
+        if es_decimal(texto) and float(texto) > 0:
+            return float(texto)
+        print("Error: ingrese un precio mayor que 0 (ejemplo: 4.50).")
+
 # ---------- Fucniones del programa ----------
 def buscar_posicion(codigo_producto, codigo):
     #Búsqueda secuencial: devuelve la posición del código o -1 si no existe.
@@ -47,7 +72,27 @@ def buscar_producto(codigo_producto, descripcion, tipo_producto, cantidad, preci
         print(f"Código: {codigo_producto[posicion]} | {descripcion[posicion]} | {tipo_producto[posicion]} | "
               f"Stock: {cantidad[posicion]} | S/ {precio_venta[posicion]:.2f}")#2f: redondea a 2 decimales
 
+#Opción 3: Agregar producto
+def agregar_producto(codigo_producto, descripcion, tipo_producto, cantidad, precio_venta):
+    codigo = leer_texto("Código nuevo: ").upper()
+    if buscar_posicion(codigo_producto, codigo) != -1:
+        print("Producto ya existe")
+        return
+    # Se definen variables locales para no modificar las listas hasta que todos los datos sean válidos
+    nueva_descripcion = leer_texto("Descripción: ")
+    nuevo_tipo = leer_texto("Tipo de producto: ")
+    nueva_cantidad = leer_cantidad("Cantidad disponible: ")
+    nuevo_precio = leer_precio("Precio de venta (S/): ")
+    #Mediante append() se agregan los datos a las listas correspondientes
+    codigo_producto.append(codigo)
+    descripcion.append(nueva_descripcion)
+    tipo_producto.append(nuevo_tipo)
+    cantidad.append(nueva_cantidad)
+    precio_venta.append(nuevo_precio)
+    print("Producto agregado.")
+
 # ---------- Persistencia (archivo de texto) ----------
+#Carga de catalogo desde archivo de texto. Cada línea del archivo tiene 5 campos separados por ";"
 def cargar_catalogo(codigo_producto, descripcion, tipo_producto, cantidad, precio_venta):
     #Lee el archivo y reparte cada línea en las cinco listas.
     archivo = open(ARCHIVO, "r", encoding="utf-8")
@@ -62,6 +107,15 @@ def cargar_catalogo(codigo_producto, descripcion, tipo_producto, cantidad, preci
             precio_venta.append(float(campos[4]))
     archivo.close()
     print("Catálogo cargado:", len(codigo_producto), "productos.")
+    
+def guardar_catalogo(codigo_producto, descripcion, tipo_producto, cantidad, precio_venta):
+    archivo = open(ARCHIVO, "w", encoding="utf-8")#definí este encoding para que no me tire error al guardar acentos usados comunmente en español
+    for i in range(len(codigo_producto)):
+        linea = (codigo_producto[i] + ";" + descripcion[i] + ";" + tipo_producto[i] + ";"
+                 + str(cantidad[i]) + ";" + str(precio_venta[i]))
+        archivo.write(linea + "\n")
+    archivo.close()
+    print("Catálogo guardado:", len(codigo_producto), "productos.")
  
 # ---------- Menú ----------
 def mostrar_menu(total_productos):
@@ -97,14 +151,16 @@ def main():
             mostrar_catalogo(*listas)
         elif opcion == "2":
             buscar_producto(*listas)
-        elif opcion in ("3", "4", "5", "6"):
+        elif opcion == "3":
+            agregar_producto(*listas)
+        elif opcion in ("4", "5"):
             print("Opción aún no implementada.")
+        elif opcion == "6":
+            guardar_catalogo(*listas)
         elif opcion == "0":
-            print("Hasta luego.")
+            guardar_catalogo(*listas)
         else:
             print("Opción inválida. Intente de nuevo.")
  
- 
 if __name__ == "__main__":
     main()
- 
