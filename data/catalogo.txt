@@ -28,4 +28,3 @@ P00027;Papel higiénico x12;Limpieza;38;19.9
 P00028;Lejía 1L;Limpieza;31;5.5
 P00029;Alimento para perro 3kg;Mascotas;14;32.0
 P00030;Chocolate de taza x6;Snacks;24;9.7
-P00031;Margarina 500g;Lácteos;20;7.5

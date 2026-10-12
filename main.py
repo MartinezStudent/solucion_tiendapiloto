@@ -91,6 +91,56 @@ def agregar_producto(codigo_producto, descripcion, tipo_producto, cantidad, prec
     precio_venta.append(nuevo_precio)
     print("Producto agregado.")
 
+#Opción 4: Modificar producto
+def modificar_producto(codigo_producto, descripcion, tipo_producto, cantidad, precio_venta):
+    """Modifica descripción, tipo, stock o precio. Enter mantiene el valor actual."""
+    codigo = leer_texto("Código del producto a modificar: ").upper()
+    posicion = buscar_posicion(codigo_producto, codigo)
+    if posicion == -1:
+        print("Producto no encontrado.")
+        return
+ 
+    print("(Deje vacío y presione Enter para mantener el valor actual)")
+ 
+    nueva_descripcion = input(f"Descripción [{descripcion[posicion]}]: ").strip()
+    if nueva_descripcion != "":
+        descripcion[posicion] = nueva_descripcion
+ 
+    nuevo_tipo = input(f"Tipo [{tipo_producto[posicion]}]: ").strip()
+    if nuevo_tipo != "":
+        tipo_producto[posicion] = nuevo_tipo
+ 
+    nuevo_stock = input(f"Stock [{cantidad[posicion]}]: ").strip()
+    if nuevo_stock != "":
+        if es_entero(nuevo_stock):
+            cantidad[posicion   ] = int(nuevo_stock)
+        else:
+            print("Stock inválido (entero mayor o igual a 0). Se mantiene el anterior.")
+ 
+    nuevo_precio = input(f"Precio [{precio_venta[posicion]:.2f}]: ").strip()
+    if nuevo_precio != "":
+        if es_decimal(nuevo_precio) and float(nuevo_precio) > 0:
+            precio_venta[posicion] = float(nuevo_precio)
+        else:
+            print("Precio inválido (debe ser mayor que 0). Se mantiene el anterior.")
+ 
+    print("Producto modificado.")
+ 
+ #Opción 5: Eliminar producto
+def eliminar_producto(codigo_producto, descripcion, tipo_producto, cantidad, precio_venta):
+    codigo = leer_texto("Código del producto a eliminar: ")
+    posicion = buscar_posicion(codigo_producto, codigo)#posicion es la variable que almacena la posición del producto a eliminar
+    if posicion == -1:
+        print("Producto no encontrado.")
+        return
+#pop() elimina el elemento en la posición especificada de cada lista
+    codigo_producto.pop(posicion)
+    descripcion.pop(posicion)
+    tipo_producto.pop(posicion)
+    cantidad.pop(posicion)
+    precio_venta.pop(posicion)
+    print("Producto eliminado.")
+    
 # ---------- Persistencia (archivo de texto) ----------
 #Carga de catalogo desde archivo de texto. Cada línea del archivo tiene 5 campos separados por ";"
 def cargar_catalogo(codigo_producto, descripcion, tipo_producto, cantidad, precio_venta):
@@ -107,7 +157,7 @@ def cargar_catalogo(codigo_producto, descripcion, tipo_producto, cantidad, preci
             precio_venta.append(float(campos[4]))
     archivo.close()
     print("Catálogo cargado:", len(codigo_producto), "productos.")
-    
+
 def guardar_catalogo(codigo_producto, descripcion, tipo_producto, cantidad, precio_venta):
     archivo = open(ARCHIVO, "w", encoding="utf-8")#definí este encoding para que no me tire error al guardar acentos usados comunmente en español
     for i in range(len(codigo_producto)):
@@ -153,8 +203,10 @@ def main():
             buscar_producto(*listas)
         elif opcion == "3":
             agregar_producto(*listas)
-        elif opcion in ("4", "5"):
-            print("Opción aún no implementada.")
+        elif opcion == "4":
+            modificar_producto(*listas)
+        elif opcion == "5":
+            eliminar_producto(*listas)
         elif opcion == "6":
             guardar_catalogo(*listas)
         elif opcion == "0":
